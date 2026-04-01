@@ -1,4 +1,8 @@
 config.json
+backfill_progress.json
+generate_session.py
+list_chats.py
+list_models.py
 prompts/
 __pycache__/
 .idea/

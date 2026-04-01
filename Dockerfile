@@ -5,10 +5,11 @@ COPY app.py /app/
 COPY summarization.py /app/
 COPY communication.py /app/
 COPY prompts/ /app/prompts/
-COPY config.json /app/
+COPY docker-entrypoint.sh /app/
 
-RUN python3 -m pip install -r /app/requirements.txt
+RUN python3 -m pip install -r /app/requirements.txt && \
+    chmod +x /app/docker-entrypoint.sh
 
 WORKDIR /app
 
-CMD ["python3", "/app/app.py", "/app/config.json"]
+CMD ["/app/docker-entrypoint.sh"]
